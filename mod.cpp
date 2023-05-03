@@ -1,7 +1,7 @@
-﻿name="MokTech Industries - Core";
+﻿name="MokTech Industries - Logistics";
 author="MokTech Industries";
-picture="z\mti\addons\common\data\moktech_industries_logo.paa";
-overview="MokTech Industries Core contains gameplay systems and equipment & weapons used by the Special Operations Brigade. SOB is a starsim unit centered around Republic Commandos, ARCs, Assassins and Shadow Troopers; and most systems provided by this mod cater to that playstyle, specifically.";
+picture="z\mti_logistics\addons\main\data\moktech_industries_logo.paa";
+overview="MokTech Industries Logistics contains gameplay systems and props for an advanced Logistics framework, including vehicle and crate spawners.";
 actionName="Discord";
 action="https://discord.gg/Pu2gdBd7Te";
 hidePicture=0;
