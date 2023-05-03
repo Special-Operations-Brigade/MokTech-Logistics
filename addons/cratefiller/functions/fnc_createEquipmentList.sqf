@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_createEquipmentList
+    mti_logistics_cratefiller_fnc_createEquipmentList
 
     File: fnc_createEquipmentList.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -44,22 +44,19 @@ if (_catIndex isEqualTo -1) exitWith {};
 
 // Variables
 private _config = "";
-private _playerSide = side player;
-private _weapons = CGVAR("weapons", createHashMap) getOrDefault [_playerSide, []];
-private _grenades = CGVAR("grenades", createHashMap) getOrDefault [_playerSide, []];
-private _explosives = CGVAR("explosives", createHashMap) getOrDefault [_playerSide,[]];
-private _items = CGVAR("items", createHashMap) getOrDefault [_playerSide,[]];
-private _backpacks = CGVAR("backpacks", createHashMap) getOrDefault [_playerSide,[]];
+private _weapons = CGVAR("weapons", []);
+private _grenades = CGVAR("grenades", []);
+private _explosives = CGVAR("explosives", []);
+private _items = CGVAR("items", []);
+private _backpacks = CGVAR("backpacks", []);
 
-diag_log format["hmm:
-%1
-%2
-%3
-%4
-%5
-%6",_playerSide, count _weapons, count _grenades, count _explosives, count _items, count _backpacks];
+TRACE_CHAT_1("weapons", _weapons);
+TRACE_CHAT_1("grenades", _grenades);
+TRACE_CHAT_1("explosives", _explosives);
+TRACE_CHAT_1("items", _items);
+TRACE_CHAT_1("backpacks", _backpacks);
 
-diag_log format["weapons:", _weapons];
+TRACE_CHAT_6("counts",_catIndex, count _weapons, count _grenades, count _explosives, count _items, count _backpacks);
 
 switch (_catIndex) do {
 
@@ -85,6 +82,7 @@ switch (_catIndex) do {
             _ctrlWeapon lbSetPicture [_index, getText (_config >> "picture")];
         } forEach (_weapons);
         CCSVAR("activeCat", "magazines", false);
+        [] call FUNC(createSubList);
     };
 
     // Attachments
@@ -98,6 +96,7 @@ switch (_catIndex) do {
             _ctrlWeapon lbSetPicture [_index, getText (_config >> "picture")];
         } forEach (_weapons);
         CCSVAR("activeCat", "attachments", false);
+        [] call FUNC(createSubList);
     };
 
     // Grenades

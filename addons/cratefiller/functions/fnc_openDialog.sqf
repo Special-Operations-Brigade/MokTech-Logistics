@@ -1,9 +1,10 @@
 #include "script_component.hpp"
 #include "..\ui\defines.hpp"
+#include "\a3\ui_f\hpp\definedikcodes.inc"
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_openDialog
+    mti_logistics_cratefiller_fnc_openDialog
 
     File: fnc_openDialog.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -29,7 +30,7 @@ params [
 CCSVAR("object", _data select 0, false);
 
 // Create dialog
-createDialog "KP_cratefiller";
+createDialog "mti_logistics_cratefiller_dialog";
 disableSerialization;
 
 // Dialog controls
@@ -65,6 +66,20 @@ if !(GVAR(param_spawnAndDelete)) then {
         _ctrlCrate lbSetData [_index , _x select 1];
     } forEach CGVAR("crates", []);
 };
+
+_dialog displayAddEventHandler ["KeyDown", {
+    params ["","_key","_shift","_ctrl","_alt"];
+    if (_key isEqualTo DIK_LSHIFT) then { GVAR(keyMods) set [0,true]; };
+    if (_key isEqualTo DIK_LCONTROL) then { GVAR(keyMods) set [1,true]; };
+    if (_key isEqualTo DIK_LALT) then { GVAR(keyMods) set [2,true]; };
+}];
+
+_dialog displayAddEventHandler ["KeyUp", {
+    params ["","_key","_shift","_ctrl","_alt"];
+    if (_key isEqualTo DIK_LSHIFT) then { GVAR(keyMods) set [0,false]; };
+    if (_key isEqualTo DIK_LCONTROL) then { GVAR(keyMods) set [1,false]; };
+    if (_key isEqualTo DIK_LALT) then { GVAR(keyMods) set [2,false]; };
+}];
 
 // Add category strings
 _ctrlCategory lbAdd localize "STR_KP_CRATEFILLER_LISTWEAPONS";

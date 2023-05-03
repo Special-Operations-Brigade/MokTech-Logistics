@@ -101,7 +101,7 @@ class CfgVehicles {
         scopeCurator = 2;
         displayName = "[SOB] LogiBox Crates (Left)";
 
-        GVAR(dialog) = QEGVAR(logistics_cratefiller,dialog);
+        GVAR(dialog) = QEGVAR(cratefiller,dialog);
 
         model = QPATHTOF(logibox_crates);
         hiddenSelectionsTextures[] = {

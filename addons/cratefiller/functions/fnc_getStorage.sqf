@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_getStorage
+    mti_logistics_cratefiller_fnc_getStorage
 
     File: fnc_getStorage.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -34,7 +34,7 @@ if (_storageIndex isEqualTo -1) exitWith {
 };
 
 // Get the storage object
-private _storage = (_ctrlStorage lbData _storageIndex) call BIS_fnc_objectFromNetId,;
+private _storage = (_ctrlStorage lbData _storageIndex) call BIS_fnc_objectFromNetId;
 
 // Check if the storage is in range
 private _object = CCGVAR("object", objNull);

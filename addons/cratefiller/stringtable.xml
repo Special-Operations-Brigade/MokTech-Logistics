@@ -6,15 +6,8 @@
     <!-- Polish localization by veteran29: https://github.com/veteran29 -->
 
         <Container name="Titles">
-            <Key ID="STR_KP_CRATEFILLER_ACTIONOPEN">
-                <English>-- KP Cratefiller --</English>
-                <German>-- KP Kistenfüller --</German>
-                <Polish>-- KP Cratefiller --</Polish>
-            </Key>
             <Key ID="STR_KP_CRATEFILLER_TITLE">
-                <English>KP Cratefiller</English>
-                <German>KP Kistenfüller</German>
-                <Polish>KP Cratefiller</Polish>
+                <English>[SOB] Logistics Menu - Crates</English>
             </Key>
             <Key ID="STR_KP_CRATEFILLER_TITLEEQUIPMENT">
                 <English>Equipment</English>
@@ -40,7 +33,7 @@
         <Container name="Dialog controls">
             <Key ID="STR_KP_CRATEFILLER_CLEARINVENTORY">
                 <English>Clear storage</English>
-                <German>Laderaum leeren/German>
+                <German>Laderaum leeren</German>
             </Key>
             <Key ID="STR_KP_CRATEFILLER_DELETECRATE">
                 <English>Store crate</English>
@@ -154,9 +147,8 @@
 				<German>Wähle eine Gruppe, deren Spieler angezeigt werden sollen.</German>
 			</Key>
             <Key ID="STR_KP_CRATEFILLER_HELP_TT">
-                <English>KP-Cratefiller v1.2.0\nBy Dubjunk</English>
-                <German>KP-Kistenfüller v1.2.0\nBy Dubjunk</German>
-                <Polish>KP-Cratefiller v1.2.0\nBy Dubjunk</Polish>
+                <English>KP-Cratefiller v1.2.0\nBy Dubjunk\nModernized by catharsis\nModified by Mokka</English>
+                <German>KP-Kistenfüller v1.2.0\nBy Dubjunk\Modernisiert von catharsis\nModifiziert von Mokka</German>
             </Key>
             <Key ID="STR_KP_CRATEFILLER_IMPORT_TT">
                 <English>Select the preset to be imported.</English>
@@ -209,6 +201,14 @@
                 <English>Choose a weapon to find the right magazines or attachments.</English>
                 <German>Wähle eine Waffe um die passenden Magazine oder Zubehör zu finden.</German>
                 <Polish>Wybierz broń do której mają być wyszukane magazynki oraz dodatki.</Polish>
+            </Key>
+            <Key ID="STR_KP_CRATEFILLER_REMOVE_TT">
+                <English>Shift: -5\nCtrl: -10\nAlt: -50</English>
+                <German>Shift: -5\nStrg: -10\nAlt: -50</German>
+            </Key>
+            <Key ID="STR_KP_CRATEFILLER_ADD_TT">
+                <English>Shift: +5\nCtrl: +10\nAlt: +50</English>
+                <German>Shift: +5\nStrg: +10\nAlt: +50</German>
             </Key>
         </Container>
 
@@ -267,6 +267,10 @@
                 <English>The loading zone is busy.</English>
                 <German>Die Ladezone ist besetzt.</German>
                 <Polish>Strefa załadunku jest okupowana.</Polish>
+            </Key>
+            <Key ID="STR_KP_CRATEFILLER_LIMITEXCEEDED">
+                <English>The spawn limit for this crate has been exceeded (%1 of %2).</English>
+                <German>Das Bereitstellungslimit für diese Kiste ist erreicht (%1 von %2).</German>
             </Key>
         </Container>
 

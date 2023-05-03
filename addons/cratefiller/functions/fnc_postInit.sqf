@@ -2,7 +2,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_postInit
+    mti_logistics_cratefiller_fnc_postInit
 
     File: fnc_postInit.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -23,7 +23,7 @@
 
 if (isServer) then {
 
-    diag_log format ["[KP] [%1] [POST] [CRATEFILLER] Module initializing...", diag_tickTime];
+    INFO("Module initializing...");
 
     // Create cratefiller presets on startup
     [] call FUNC(presets);
@@ -31,8 +31,7 @@ if (isServer) then {
 };
 
 GVAR(cachedBuildingClasses) = [];
-call FUNC(handleBuildings);
 
-if (isServer) then {diag_log format ["[KP] [%1] [POST] [CRATEFILLER] Module initialized", diag_tickTime];};
+if (isServer) then {INFO("Module initialized");};
 
 true

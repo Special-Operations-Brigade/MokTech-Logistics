@@ -8,4 +8,6 @@ PREP_RECOMPILE_END;
 
 ADDON = true;
 
+GVAR(keyMods) = [false,false,false]; // shift, ctrl, alt
+
 [] call FUNC(preInit);

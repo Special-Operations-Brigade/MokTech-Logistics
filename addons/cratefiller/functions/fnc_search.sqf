@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_search
+    mti_logistics_cratefiller_fnc_search
 
     File: fnc_search.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -34,7 +34,7 @@ _ctrlWeapon lbSetCurSel -1;
 private _search = toLower (ctrlText _ctrlSearch);
 
 // Get the available weapons
-private _weapons = CGVAR("weapons", createHashMap) getOrDefault [side player, []];
+private _weapons = CGVAR("weapons", []);
 
 // Variables
 private _foundWeapons = [];

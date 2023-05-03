@@ -2,7 +2,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_getConfigPath
+    mti_logistics_cratefiller_fnc_getConfigPath
 
     File: fnc_getConfigPath.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes

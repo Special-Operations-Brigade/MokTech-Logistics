@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_showPresets
+    mti_logistics_cratefiller_fnc_showPresets
 
     File: fnc_showPresets.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes

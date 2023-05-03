@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_deleteCrate
+    mti_logistics_cratefiller_fnc_deleteCrate
 
     File: fnc_deleteCrate.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -34,10 +34,12 @@ if ((typeOf _storage) in CGVAR("crates", [])) exitWith {
     [localize "STR_KP_CRATEFILLER_HINTNONDELETEABLE"] call CBA_fnc_notify;
 };
 
+private _crateType = typeOf _storage;
+
 // Delete crate
 deleteVehicle _storage;
 
-private _config = [typeOf _storage] call FUNC(getConfigPath);
+private _config = [_crateType] call FUNC(getConfigPath);
 private _name = (getText (_config >> "displayName"));
 
 _storage = objNull;
@@ -46,5 +48,12 @@ _storage = objNull;
 [{[] remoteExecCall [QFUNC(getNearStorages), (allPlayers - entities "HeadlessClient_F")];}, [], 1] call CBA_fnc_waitAndExecute;
 
 [format [localize "STR_KP_CRATEFILLER_HINTDELETE", _name]] call CBA_fnc_notify;
+
+private _object = CCGVAR("object", objNull);
+private _deployedHash = _object getVariable [QEGVAR(logistics,deployedHash),createHashMap];
+private _amountSpawned = _deployedHash getOrDefault [_crateType,0];
+TRACE_CHAT_2("deploy amount",_crateType,_amountSpawned);
+_deployedHash set [_crateType,(_amountSpawned - 1) max 0];
+_object setVariable [QEGVAR(logistics,deployedHash),_deployedHash,true];
 
 true

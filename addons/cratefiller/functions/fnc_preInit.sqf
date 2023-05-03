@@ -2,7 +2,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_preInit
+    mti_logistics_cratefiller_fnc_preInit
 
     File: fnc_preInit.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -20,7 +20,7 @@
         PreInit finished [BOOL]
 */
 
-if (isServer) then {diag_log format ["[KP] [%1] [PRE] [CRATEFILLER] Module initializing...", diag_tickTime];};
+if (isServer) then {diag_log format [INFO("Module pre-initializing...")];};
 
 /*
     ----- Module Initialization -----
@@ -44,6 +44,6 @@ if (isServer) then {
 
 };
 
-if (isServer) then {diag_log format ["[KP] [%1] [PRE] [CRATEFILLER] Module initialized", diag_tickTime];};
+if (isServer) then {diag_log format [INFO("Module pre-initialized")];};
 
 true

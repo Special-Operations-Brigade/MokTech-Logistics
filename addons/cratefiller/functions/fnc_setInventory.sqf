@@ -2,7 +2,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_setInventory
+    mti_logistics_cratefiller_fnc_setInventory
 
     File: fnc_setInventory.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes

@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_getGroups
+    mti_logistics_cratefiller_fnc_getGroups
 
     File: fnc_getGroups.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -49,6 +49,6 @@ CCSVAR("groups", _groups, false);
 // Fill the list
 {
     _index = _ctrlGroups lbAdd groupId _x;
-} forEach _groups getOrDefault [side player,[]];
+} forEach (_groups getOrDefault [side player,[]]);
 
 true

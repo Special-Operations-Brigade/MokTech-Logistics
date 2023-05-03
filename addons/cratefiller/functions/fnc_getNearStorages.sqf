@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_getNearStorages
+    mti_logistics_cratefiller_fnc_getNearStorages
 
     File: fnc_getNearStorages.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -43,26 +43,38 @@ private _object = CCGVAR("object", objNull);
 private _objects = _object nearObjects GVAR(param_usageRadius);
 _blacklist append CGVAR("inventoryBlacklist", []);
 
-// Convert CBA settings array
-_blacklist append (GVAR(param_inventoryBlacklist) splitString ", ");
-
 // Get near objects and check for storage capacity
+private _validObjects = _objects select {
+    !(typeOf _x in _blacklist)
+    && !((typeOf _x select [0,1]) isEqualTo "#")
+    && !(_x isKindOf "Building")
+    && !(typeOf _x in CGVAR("buildings", []))
+    && ((attachedTo _x) isEqualTo objNull)
+};
+private _invCount = 0;
+
 {
     _type = typeOf _x;
     _config = [_type] call FUNC(getConfigPath);
     _number = getNumber (_config >> "maximumLoad");
     // If the object has an inventory add it to the list
     if (_number > 0) then {
+        _invCount = _invCount + 1;
         _index = _ctrlStorage lbAdd format ["%1m - %2", round ((getPos _object) distance2D _x), getText (_config >> "displayName")];
         _netId = _x call BIS_fnc_netId;
         _ctrlStorage lbSetData [_index, _netId];
         _picture = getText (_config >> "picture");
         if (_picture isEqualTo "pictureThing") then {
-            _ctrlStorage lbSetPicture [_index, "\z\KPCF\addons\cratefiller\ui\res\icon_help"];
+            _ctrlStorage lbSetPicture [_index, "\z\mti_logistics\addons\cratefiller\ui\res\icon_help"];
         } else {
             _ctrlStorage lbSetPicture [_index, _picture];
         };
     };
-} forEach (_objects select {!(typeOf _x in _blacklist) && !((typeOf _x select [0,1]) isEqualTo "#") && !(_x isKindOf "Building") && !(typeOf _x in CGVAR("buildings", [])) && ((attachedTo _x) isEqualTo objNull)});
+} forEach (_validObjects);
+
+// Select first storage if nothing was selected previously
+if ((lbCurSel _ctrlStorage isEqualTo -1) && _invCount > 0) then {
+    _ctrlStorage lbSetCurSel 0;
+};
 
 true

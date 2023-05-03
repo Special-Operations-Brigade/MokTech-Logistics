@@ -4,7 +4,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_addEquipment
+    mti_logistics_cratefiller_fnc_addEquipment
 
     File: fnc_addEquipment.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -56,6 +56,7 @@ if (_controlId isEqualTo KP_CRATEFILLER_IDC_INVENTORYLIST) then {
 } else {
     private _cat = CCGVAR("activeCat", "");
     private _catStuff = CGVAR(_cat, []);
+    TRACE_CHAT_4("catstuff",_cat,_catStuff,_indexActive,(_catStuff select _indexActive));
     _item = (_catStuff select _indexActive) select 1;
 };
 
@@ -65,11 +66,16 @@ if (!(_storage canAdd _item)) exitWith {
     [localize "STR_KP_CRATEFILLER_HINTFULL"] call CBA_fnc_notify;
 };
 
+private _amount = 1;
+if (GVAR(keyMods) select 0) then { _amount = 5;};
+if (GVAR(keyMods) select 1) then { _amount = 10;};
+if (GVAR(keyMods) select 2) then { _amount = 50;};
+
 // Add the given item
 if (_item isKindOf "Bag_Base") then {
-    _storage addBackpackCargoGlobal [_item, 1];
+    _storage addBackpackCargoGlobal [_item, _amount];
 } else {
-    _storage addItemCargoGlobal [_item, 1];
+    _storage addItemCargoGlobal [_item, _amount];
 };
 
 [] remoteExecCall [QFUNC(showInventory), (allPlayers - entities "HeadlessClient_F")];
@@ -80,7 +86,7 @@ private _picture = (getText (_config >> "picture"));
 CBA_ui_notifyQueue = [];
 [
     [_picture, 2],
-    [format [localize "STR_KP_CRATEFILLER_HINTADDED", _name, 1]]
+    [format [localize "STR_KP_CRATEFILLER_HINTADDED", _name, _amount]]
 ] call CBA_fnc_notify;
 
 true

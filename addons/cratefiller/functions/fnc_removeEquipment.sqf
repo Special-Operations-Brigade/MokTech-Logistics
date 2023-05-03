@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_removeEquipment
+    mti_logistics_cratefiller_fnc_removeEquipment
 
     File: fnc_removeEquipment.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -47,12 +47,18 @@ if (_indexActive isEqualTo -1 || ((lnbSize _ctrlActive) select 0) isEqualTo 0) e
     [localize "STR_KP_CRATEFILLER_HINTSELECTION"] call CBA_fnc_notify;
 };
 
+
+private _amount = 1;
+if (GVAR(keyMods) select 0) then { _amount = 5;};
+if (GVAR(keyMods) select 1) then { _amount = 10;};
+if (GVAR(keyMods) select 2) then { _amount = 50;};
+
 if (_controlId isEqualTo KP_CRATEFILLER_IDC_INVENTORYLIST) then {
     // Item selection
     _item = ((_inventory select _indexActive) select 1);
 
     // Modify array
-    (_inventory select _indexActive) set [2, (((_inventory select _indexActive) select 2) - 1)];
+    (_inventory select _indexActive) set [2, (((_inventory select _indexActive) select 2) - _amount) max 0];
 } else {
     private _cat = CCGVAR("activeCat", "");
     private _catStuff = CGVAR(_cat, []);
@@ -60,7 +66,7 @@ if (_controlId isEqualTo KP_CRATEFILLER_IDC_INVENTORYLIST) then {
     _index = _inventory findIf {(_x select 1) isEqualTo _item};
     if (_index isEqualTo -1) exitWith {};
     // Modify array
-    (_inventory select _index) set [2, ((_inventory select _index) select 2) - 1];
+    (_inventory select _index) set [2, (((_inventory select _index) select 2) - _amount) max 0];
 };
 
 // Exit the function if nothing changed

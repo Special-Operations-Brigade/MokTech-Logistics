@@ -2,7 +2,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_sortList
+    mti_logistics_cratefiller_fnc_sortList
 
     File: fnc_sortList.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes

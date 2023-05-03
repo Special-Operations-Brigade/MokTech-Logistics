@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_import
+    mti_logistics_cratefiller_fnc_import
 
     File: fnc_import.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes

@@ -8,7 +8,7 @@
     Provides the cratefiller dialog.
 */
 
-class KP_cratefiller {
+class mti_logistics_cratefiller_dialog {
     idd = KP_CRATEFILLER_IDC_DIALOG;
     movingEnable = 0;
 
@@ -91,7 +91,7 @@ class KP_cratefiller {
     class controls {
 
         class KPCF_Help: KPGUI_PRE_DialogCrossS {
-            text = "\z\KPCF\addons\cratefiller\ui\res\icon_help";
+            text = "\z\mti_logistics\addons\cratefiller\ui\res\icon_help";
             x = safeZoneX + safeZoneW * (KP_X_VAL_S + KP_WIDTH_VAL_S - 0.04);
             y = KP_GETY_CROSS(KP_Y_VAL_S);
             tooltip = "$STR_KP_CRATEFILLER_HELP_TT";
@@ -100,7 +100,7 @@ class KP_cratefiller {
 
         class KPCF_ButtonTools: KPGUI_PRE_DialogCrossS {
             idc = KP_CRATEFILLER_IDC_BUTTONOVERVIEW;
-            text = "\z\KPCF\addons\cratefiller\ui\res\icon_tools";
+            text = "\z\mti_logistics\addons\cratefiller\ui\res\icon_tools";
             x = safeZoneX + safeZoneW * (KP_X_VAL_S + KP_WIDTH_VAL_S - 0.08);
             tooltip = "$STR_KP_CRATEFILLER_ACTIVATEOVERVIEW_TT";
             action = QUOTE([] call FUNC(showOverview));
@@ -134,7 +134,7 @@ class KP_cratefiller {
         };
 
         class KPCF_RefreshCargo: KPGUI_PRE_CloseCross {
-            text = "\z\KPCF\addons\cratefiller\ui\res\icon_refresh";
+            text = "\z\mti_logistics\addons\cratefiller\ui\res\icon_refresh";
             x = KP_GETCX(KP_X_VAL_S,KP_WIDTH_VAL_S,23,24);
             y = KP_GETCY(KP_Y_VAL_S,KP_HEIGHT_VAL_S,3,48);
             w = KP_GETW(KP_WIDTH_VAL_S,24);
@@ -201,12 +201,14 @@ class KP_cratefiller {
             idc = KP_CRATEFILLER_IDC_BUTTONLEFTEQUIPMENT;
             text = "-";
             onButtonClick = QUOTE([687416] call FUNC(removeEquipment));
+            tooltip = "$STR_KP_CRATEFILLER_REMOVE_TT";
         };
 
         class KPCF_RightEquipmentListButton: KPGUI_PRE_BUTTON {
             idc = KP_CRATEFILLER_IDC_BUTTONRIGHTEQUIPMENT;
             text = "+";
             onButtonClick = QUOTE([687416] call FUNC(addEquipment));
+            tooltip = "$STR_KP_CRATEFILLER_ADD_TT";
         };
 
         class KPCF_EquipmentList: KPGUI_PRE_ListNBox {
@@ -266,7 +268,7 @@ class KP_cratefiller {
         };
 
         class KPCF_DeletePreset: KPGUI_PRE_CloseCross {
-            text = "\z\KPCF\addons\cratefiller\ui\res\icon_recyclebin";
+            text = "\z\mti_logistics\addons\cratefiller\ui\res\icon_recyclebin";
             x = KP_GETCX(KP_X_VAL_S,KP_WIDTH_VAL_S,23,24);
             y = KP_GETCY(KP_Y_VAL_S,KP_HEIGHT_VAL_S,12,48);
             w = KP_GETW(KP_WIDTH_VAL_S,24);
@@ -279,12 +281,14 @@ class KP_cratefiller {
             idc = KP_CRATEFILLER_IDC_BUTTONLEFTINVENTORY;
             text = "-";
             onButtonClick = QUOTE([687421] call FUNC(removeEquipment));
+            tooltip = "$STR_KP_CRATEFILLER_REMOVE_TT";
         };
 
         class KPCF_RightInventoryListButton: KPGUI_PRE_BUTTON {
             idc = KP_CRATEFILLER_IDC_BUTTONRIGHTINVENTORY;
             text = "+";
             onButtonClick = QUOTE([687421] call FUNC(addEquipment));
+            tooltip = "$STR_KP_CRATEFILLER_ADD_TT";
         };
 
         class KPCF_InventoryList: KPGUI_PRE_ListNBox {

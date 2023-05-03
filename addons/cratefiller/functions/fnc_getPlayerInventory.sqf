@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_getPlayerInventory
+    mti_logistics_cratefiller_fnc_getPlayerInventory
 
     File: fnc_getPlayerInventory.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes
@@ -55,6 +55,13 @@ if !(_mainWeapon isEqualTo "") then {
     // Handle the tooltip stuff
     _tooltip append [getText (_config >> "displayName"), "\n"];
     _description = (getText (_config >> "descriptionShort")) splitString "<>";
+
+    if (count _description == 0) then {
+        _description = ["","",""];
+    };
+    if (count _description <= 2) then {
+        _description set [2,""];
+    };
     _tooltip append [_description select 0, "\n", _description select 2, "\n"];
     _magazine = (primaryWeaponMagazine _player) select 0;
     _config = [_magazine] call FUNC(getConfigPath);
@@ -72,6 +79,8 @@ if !(_mainWeapon isEqualTo "") then {
     _ctrlMainWeapon ctrlSetText "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\PrimaryWeapon_ca.paa";
 };
 
+_tooltip = [];
+
 // Set the handgun picture and tooltip
 if !(_handgun isEqualTo "") then {
     _config = [_handgun] call FUNC(getConfigPath);
@@ -80,6 +89,14 @@ if !(_handgun isEqualTo "") then {
     // Handle the tooltip stuff
     _tooltip append [getText (_config >> "displayName"), "\n"];
     _description = (getText (_config >> "descriptionShort")) splitString "<>";
+    TRACE_CHAT_1("handgun",_description);
+
+    if (count _description == 0) then {
+        _description = ["","",""];
+    };
+    if (count _description <= 2) then {
+        _description set [2,""];
+    };
     _tooltip append [_description select 0, "\n", _description select 2, "\n"];
     _magazine = (handgunMagazine _player) select 0;
     _config = [_magazine] call FUNC(getConfigPath);
@@ -97,6 +114,8 @@ if !(_handgun isEqualTo "") then {
     _ctrlHandgun ctrlSetText "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\Handgun_ca.paa";
 };
 
+_tooltip = [];
+
 // Set the secondary weapon picture and tooltip
 if !(_secondaryWeapon isEqualTo "") then {
     _config = [_secondaryWeapon] call FUNC(getConfigPath);
@@ -105,6 +124,13 @@ if !(_secondaryWeapon isEqualTo "") then {
     // Handle the tooltip stuff
     _tooltip append [getText (_config >> "displayName"), "\n"];
     _description = (getText (_config >> "descriptionShort")) splitString "<>";
+
+    if (count _description == 0) then {
+        _description = ["","",""];
+    };
+    if (count _description <= 2) then {
+        _description set [2,""];
+    };
     _tooltip append [_description select 0, "\n", _description select 2, "\n"];
     _magazine = (secondaryWeaponMagazine _player) select 0;
     _config = [_magazine] call FUNC(getConfigPath);

@@ -3,7 +3,7 @@
 /*
     Killah Potatoes Cratefiller v1.2.0
 
-    KPCF_cratefiller_fnc_deletePreset
+    mti_logistics_cratefiller_fnc_deletePreset
 
     File: fnc_deletePreset.sqf
     Author: Dubjunk - https://github.com/KillahPotatoes

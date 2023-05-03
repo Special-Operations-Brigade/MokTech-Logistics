@@ -33,8 +33,8 @@ private _dialog = GET_TEXT(configFile >> "CfgVehicles" >> (typeOf _logibox) >> Q
 if (_dialog isEqualTo "") exitWith { WARNING_1("no dialog set up for logibox %1",typeOf _logibox); };
 
 
-if (_dialog isEqualTo QEGVAR(logistics_cratefiller,dialog)) exitWith {
-    [[_logibox]] call EFUNC(logistics_cratefiller,openDialog);
+if (_dialog isEqualTo QEGVAR(cratefiller,dialog)) exitWith {
+    [[_logibox]] call EFUNC(cratefiller,openDialog);
 };
 
 private _owner = _logibox getVariable QGVAR(owner);
