@@ -1,0 +1,1 @@
+#include "\z\KPCF\addons\cratefiller\script_component.hpp"
