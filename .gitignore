@@ -1,0 +1,20 @@
+# Exclude documentation output and temp data
+docs/
+tools/ac-aux/Working Data
+tools/ac-aux/Data
+
+# Exclude the Natural Docs binary files
+tools/Natural Docs
+tools/_Natural Docs
+
+# IDEA stuff
+.idea/
+*.iml
+
+\.vscode/launch.json
+out/
+\.vscode/settings\.json
+
+*.code-workspace
+
+*.png
